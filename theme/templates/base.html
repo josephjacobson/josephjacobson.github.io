@@ -4,6 +4,8 @@
         {% block head %}
         <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
         <meta charset="utf-8" />
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/css/normalize.css">
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css">
         {% if FEED_ALL_ATOM %}
         <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
         {% endif %}
@@ -30,33 +32,27 @@
         {% endif %}
         {% endblock head %}
 </head>
+<body>
+<section id="banner">
+<nav>
+  <ul>
+    <li id="nav-home"><a href="{{ SITEURL }}/index.html">~</a></li>
+    <li id="nav-code"><a href="https://github.com/josephjacobson">#!</a></li>
+    <li id="nav-contact"><address><a href="mailto:jacobson at pobox dot com">@</a></address></li>
+    <li id="nav-about"><a href="https://www.linkedin.com/in/josephjacobson">?</a></li>
+    </ul>
+</nav>
+    <section><b>{{ SITENAME }}</b></section>
+    <section>{{ SITESUBTITLE }}</section>
+</section>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="{{ SITEURL }}/">{{ SITENAME }} <strong>{{ SITESUBTITLE }}</strong></a></h1>
-        </header><!-- /#banner -->
-        <nav id="menu"><ul>
-        {% for title, link in MENUITEMS %}
-            <li><a href="{{ link }}">{{ title }}</a></li>
-        {% endfor %}
-        {% if DISPLAY_PAGES_ON_MENU %}
-          {% for p in pages %}
-            <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
-          {% endfor %}
-        {% endif %}
-        {% if DISPLAY_CATEGORIES_ON_MENU %}
-          {% for cat, null in categories %}
-            <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
-          {% endfor %}
-        {% endif %}
-        </ul></nav><!-- /#menu -->
-        {% block content %}
-        {% endblock %}
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
-                which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
-        </footer><!-- /#contentinfo -->
+<main>
+{% block content %} {% endblock %}
+</main>
+
+<section id="tail">
+&copy; 2018 <address><a href="mailto:jacobson at pobox dot com">Joseph Jacobson</a>.</address>
+</section>
+
 </body>
 </html>
