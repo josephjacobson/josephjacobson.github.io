@@ -2,15 +2,17 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-AUTHOR = u'Joseph Jacobson'
-SITENAME = u'josephjacobson.github.io'
-SITEURL = ''
+AUTHOR = 'Joseph Jacobson'
+SITENAME = 'josephjacobson.github.io'
+SITESUBTITLE = 'Miscellany'
+SITEURL = 'https://josephjacobson.github.io'
+THEME = "theme"
 
 PATH = 'content'
 
 TIMEZONE = 'US/Eastern'
 
-DEFAULT_LANG = u'English'
+DEFAULT_LANG = 'en-US'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -20,16 +22,23 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Blogroll
-LINKS = (('Pelican', 'http://getpelican.com/'),
-         ('Python.org', 'http://python.org/'),
-         ('Jinja2', 'http://jinja.pocoo.org/'),
-         ('You can modify those links in your config file', '#'),)
+LINKS = None
 
 # Social widget
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
+SOCIAL = None
 
 DEFAULT_PAGINATION = False
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
+
+DEFAULT_DATE_FORMAT = '%Y.%m.%d'
+ARTICLE_TRANSLATION_ID = None
+DEFAULT_PAGINATION = False
+DIRECT_TEMPLATES = ['index', 'archives']
+DISPLAY_CATEGORIES_ON_MENU = False
+DISPLAY_PAGES_ON_MENU = False
+CATEGORY_SAVE_AS = ''
+AUTHOR_SAVE_AS = ''
+TAG_SAVE_AS = ''
+
