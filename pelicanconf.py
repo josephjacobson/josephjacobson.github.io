@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 AUTHOR = 'Joseph Jacobson'
 SITENAME = 'josephjacobson.github.io'
 SITESUBTITLE = 'Miscellany'
-SITEURL = 'https://josephjacobson.github.io'
+SITEURL = ''
 THEME = "theme"
 
 PATH = 'content'
@@ -30,7 +30,7 @@ SOCIAL = None
 DEFAULT_PAGINATION = False
 
 # Uncomment following line if you want document-relative URLs when developing
-#RELATIVE_URLS = True
+RELATIVE_URLS = True
 
 DEFAULT_DATE_FORMAT = '%Y.%m.%d'
 ARTICLE_TRANSLATION_ID = None
