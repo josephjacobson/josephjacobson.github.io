@@ -42,3 +42,12 @@ CATEGORY_SAVE_AS = ''
 AUTHOR_SAVE_AS = ''
 TAG_SAVE_AS = ''
 
+# static paths will be copied without parsing their contents
+STATIC_PATHS = [
+  'static/README',
+]
+# path-specific metadata
+EXTRA_PATH_METADATA = {
+  'static/README': {'path': 'README.md'},
+}
+
