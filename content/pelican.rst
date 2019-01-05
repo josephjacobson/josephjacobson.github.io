@@ -69,7 +69,7 @@ Install with::
 
   pip install --user ghp-import
 
-So the workflow should be create a git branch, e.g. `pelican`.  Set up pelican
+So the workflow should be create a git branch, e.g. ``pelican``.  Set up pelican
 and save content there.  Then do a ``make publish`` and ``make github`` to 
 copy the output to the ``master`` branch. 
 
