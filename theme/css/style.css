@@ -1,0 +1,48 @@
+
+/*  Copyright (c) 2018, Joseph Jacobson <jacobson@pobox.com>
+ *  You may redistribute under the terms of the 2 clause BSD license.
+ */
+
+/* colors
+#ffffff;
+#a8a8a8;
+#545454;
+#000000;
+*/
+
+html { background-color: #000; }
+body { background-color: #111; color: #a8a8a8; }
+body { font-family: verdana, arial, helvetica, sans-serif; }
+body { font-size: 76%; /* [60,69,76,86,93]% only useful values < 100% */ }
+a { color: #fff; font-weight: bold; text-decoration: none; }
+a:hover { border-bottom: 1px dashed #a8a8a8; text-decoration: none; }
+
+body { margin: 0 auto; max-width: 70em; }
+main, #banner { border: .01em solid #545454; }
+main, #banner { clear: both; margin: 1em; padding: 1em; }
+nav { float: right; }
+nav ul { list-style-type: none; }
+nav ul { margin: .3em; padding: 0; }
+nav li { border: .01em solid #545454; display: inline; padding: .5em; }
+#tail { margin: 1em; }
+address { display: inline; }
+.literal-block, figure {
+  background-color: #000;
+  border: .01em solid #a8a8a8;
+  line-height: .8em;
+  margin: 1em;
+  padding: 1em;
+}
+figcaption {
+  float: right;
+  font-style: italic;
+}
+.archives dl,dt,dd { display: inline; }
+.archives dt,dd { margin: 0 auto; }
+ol[id=post-list] { list-style-type: none; }
+ol[id=post-list] { list-style-type: none; padding: 0em; }
+#post-list h2 { margin-top: 0em; }
+h2[class=entry-title] { margin-top: 0em; }
+div[class=published] { text-align: right; }
+div[class=modified] { text-align: right; }
+

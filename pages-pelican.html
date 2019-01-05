@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+          <title>josephjacobson.github.io - Getting Started With Pelican</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="https://josephjacobson.github.io/theme/css/normalize.css">
+        <link rel="stylesheet" href="https://josephjacobson.github.io/theme/css/style.css">
+
+
+
+
+
+</head>
+<body>
+<section id="banner">
+<nav>
+  <ul>
+    <li id="nav-home"><a href="https://josephjacobson.github.io/index.html">~</a></li>
+    <li id="nav-code"><a href="https://github.com/josephjacobson">#!</a></li>
+    <li id="nav-contact"><address><a href="mailto:jacobson at pobox dot com">@</a></address></li>
+    <li id="nav-about"><a href="https://www.linkedin.com/in/josephjacobson">?</a></li>
+    </ul>
+</nav>
+    <section><b>josephjacobson.github.io</b></section>
+    <section>Miscellany</section>
+</section>
+
+<main>
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="https://josephjacobson.github.io/pages-pelican.html" rel="bookmark"
+         title="Permalink to Getting Started With Pelican">Getting Started With Pelican</a></h2>
+ 
+  </header>
+  <div class="entry-content">
+    <p>Time to put some content in <a class="reference external" href="https://pages.github.com/">GitHub Pages</a>.</p>
+<p>We'll need an ssh key first.  I have a lot of keys and use a <tt class="docutils literal"><span class="pre">&lt;user&gt;.&lt;domain&gt;</span></tt>
+convention to keep track of them:</p>
+<pre class="literal-block">
+ssh-keygen -t ed25519 -o -f ~/.ssh/keys/josephjacobson.github.com
+</pre>
+<p>The corresponding <tt class="docutils literal"><span class="pre">~/.ssh/config</span></tt> bit:</p>
+<pre class="literal-block">
+Host github.com
+  User git
+  IdentityFile ~/.ssh/keys/josephjacobson.github.com
+</pre>
+<p>Now we can clone and commit:</p>
+<pre class="literal-block">
+git clone git&#64;github.com:josephjacobson/josephjacobson.github.io.git
+</pre>
+<p>I have a lot of git repos too, so let's be explicit in this particular repo
+about the user:</p>
+<pre class="literal-block">
+cd josephjacobson.github.io
+git config --local user.name &quot;Joseph Jacobson&quot;
+git config --local user.email &quot;jacobson&#64;pobox.com&quot;
+</pre>
+<p>Setup complete.  Now what to put here....
+<a class="reference external" href="https://www.staticgen.com/">StaticGen</a> has a bunch of interesting options.
+I use <a class="reference external" href="http://jinja.pocoo.org/">jinja2</a> a lot with
+<a class="reference external" href="https://www.ansible.com/">ansible</a> and
+<a class="reference external" href="https://cloud.google.com/deployment-manager/docs/quickstart">cdm</a>, so let's
+try <a class="reference external" href="https://getpelican.com/">pelican</a>.</p>
+<p>Using a mac, but don't want to pollute the base install, so user install it is:</p>
+<pre class="literal-block">
+easy_install --user pip
+PATH=&quot;~/Library/Python/2.7/bin:$PATH&quot;
+pip install --user pelican
+pip install --user Markdown
+</pre>
+<p>The <a class="reference external" href="http://docs.getpelican.com/en/stable/install.html#kickstart-your-site">docs</a> say <tt class="docutils literal"><span class="pre">pelican-quickstart</span></tt>. I ran into this:</p>
+<pre class="literal-block">
+$ pelican-quickstart
+Traceback (most recent call last):
+  ...
+  File &quot;.../Library/Python/2.7/lib/python/site-packages/pelican/utils.py&quot;, line 29, in &lt;module&gt;
+    from six.moves.html_parser import HTMLParser
+</pre>
+<p>But force installing a user verison of <tt class="docutils literal">six</tt> fixed it:</p>
+<pre class="literal-block">
+pip install --user --force-reinstall six
+</pre>
+<p>If you told <tt class="docutils literal"><span class="pre">pelican-quickstart</span></tt> you were going to use GitHub Pages, it
+will set up the <tt class="docutils literal">Makefile</tt> to use <tt class="docutils literal"><span class="pre">ghp-import</span></tt> for publishing.  You can
+found out more about this here:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://docs.getpelican.com/en/stable/tips.html">http://docs.getpelican.com/en/stable/tips.html</a></li>
+</ul>
+<p>Install with:</p>
+<pre class="literal-block">
+pip install --user ghp-import
+</pre>
+<p>So the workflow should be create a git branch, e.g. <cite>pelican</cite>.  Set up pelican
+and save content there.  Then do a <tt class="docutils literal">make publish</tt> and <tt class="docutils literal">make github</tt> to
+copy the output to the <tt class="docutils literal">master</tt> branch.</p>
+<p>Docs are pretty straightforward about building content.  A bunch of
+<a class="reference external" href="http://pelicanthemes.com/">themes</a> are available, but didn't see anything
+that immediately appealed to me.  The
+<a class="reference external" href="https://github.com/getpelican/pelican/tree/master/pelican/themes/simple/templates">simple</a>
+theme is available by default, so I decided to <tt class="docutils literal">cp</tt> and
+<a class="reference external" href="http://docs.getpelican.com/en/stable/themes.html">hack</a> on that.  Use
+<tt class="docutils literal"><span class="pre">pelican-themes</span> <span class="pre">-v</span> <span class="pre">-l</span></tt> to find the locally installed files.</p>
+<p>Spent some time refreshing my CSS and HTML.  Normalizing css instead of full
+resets seem to popular right now.  New semantics in HTML5.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/necolas/normalize.css">https://github.com/necolas/normalize.css</a></li>
+<li><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5">https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5</a></li>
+</ul>
+<p>I think I've gotten the basic stuff done at this point.
+I'll iterate improvements as I go.</p>
+
+  </div><!-- /.entry-content -->
+  <footer class="post-info">
+    <div class="published">
+    posted: <time class="published" datetime="2018-12-08T08:30:00-05:00">
+      2018.12.08
+    </time>
+    </div>
+  </footer><!-- /.post-info -->
+</section>
+</main>
+
+<section id="tail">
+&copy; 2018 <address><a href="mailto:jacobson at pobox dot com">Joseph Jacobson</a>.</address>
+</section>
+
+</body>
+</html>
