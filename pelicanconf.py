@@ -51,3 +51,15 @@ EXTRA_PATH_METADATA = {
   'static/README': {'path': 'README.md'},
 }
 
+MARKDOWN = {
+  'extension_configs': {
+    'markdown.extensions.codehilite': {
+      'css_class': 'literal-block',
+      'use_pygments': False,
+    },
+    'markdown.extensions.extra': {},
+    'markdown.extensions.meta': {},
+  },
+  'output_format': 'html5',
+}
+
